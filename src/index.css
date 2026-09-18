@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+@theme {
+  --font-display: "Manrope", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  --color-ink-950: #060a14;
+  --color-ink-900: #0a0f1e;
+  --color-ink-850: #0d1424;
+  --color-ink-800: #101a2e;
+  --color-ink-700: #16223a;
+  --color-ink-600: #1d2c48;
+  --color-ink-500: #2a3c5e;
+  --color-ink-border: #223151;
+
+  --color-gold-400: #f6c15c;
+  --color-gold-500: #eeab3c;
+  --color-gold-600: #dd9622;
+
+  --color-teal-400: #3fe3c4;
+  --color-teal-500: #1fcdae;
+
+  --color-mist-100: #f4f7fb;
+  --color-mist-300: #c4cede;
+  --color-mist-400: #9aa8c2;
+  --color-mist-500: #7787a5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink-950);
+  color: var(--color-mist-100);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--color-gold-500);
+  color: var(--color-ink-950);
+}
+
+/* subtle scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink-950); }
+::-webkit-scrollbar-thumb { background: var(--color-ink-600); border-radius: 999px; }
