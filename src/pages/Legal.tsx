@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Breadcrumb } from '@/components/ui/Atoms'
-import LegalHero from '@/Assest/Legal_hero.png'
+import LegalHero from '@/Assest/Legal_Hero.png'
 
 const sections = [
   {

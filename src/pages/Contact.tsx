@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Headset } from 'lucide-react'
 import { Breadcrumb } from '@/components/ui/Atoms'
 import OrbitVisual from '@/components/ui/OrbitVisual'
-import contactHero from '@/Assest/Contact_hero.png'
+import contactHero from '@/Assest/Contact_Hero.png'
 import Button from '@/components/ui/Button'
 
 const routes = [

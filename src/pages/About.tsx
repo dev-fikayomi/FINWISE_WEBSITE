@@ -3,7 +3,7 @@ import PageHero from '@/components/layout/PageHero'
 import OrbitVisual from '@/components/ui/OrbitVisual'
 import { SectionHeading, Card } from '@/components/ui/Atoms'
 import PersonAvatar from '@/components/ui/PersonAvatar'
-import AboutHero from '@/Assest/About_Hero.png'
+import AboutHero from '@/Assest/About_hero.png'
 import Button from '@/components/ui/Button'
 
 const beliefs = [
