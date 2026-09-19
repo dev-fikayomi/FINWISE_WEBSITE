@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 text-xs text-mist-500">
-          © {new Date().getFullYear()} Finwise. All savings and credit products are provided by
+          © {new Date().getFullYear()} FSIL. All savings and credit products are provided by
           licensed partner institutions.
         </p>
       </div>
