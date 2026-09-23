@@ -90,12 +90,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            to="/contact"
-            className="text-sm font-semibold text-gold-500 hover:text-gold-400"
-          >
-            Login
-          </Link>
+         
           <Button to="/contact" variant="primary">
             Get Started
           </Button>
@@ -154,9 +149,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="mt-4 flex items-center gap-3">
-            <Link to="/contact" className="text-sm font-semibold text-gold-500">
-              Login
-            </Link>
+           
             <Button to="/contact" variant="primary" className="flex-1">
               Get Started
             </Button>

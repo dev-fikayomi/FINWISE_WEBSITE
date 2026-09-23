@@ -8,8 +8,9 @@ import {
   BadgeCheck,
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import homeHero from '@/Assest/Home_hero.png'
+import homeHero from '@/Assest/new_Home.png'
 import homeScreenMock from '@/Assest/Home_Screen_Mock.png'
+import homePic from '@/Assest/Home_Pic.png'
 import familyAccount from '@/Assest/Family_Account_Icon.png'
 import TaskReward from '@/Assest/Task&Reward.png'
 import ChildAccount from '@/Assest/Child_Account_Profile_Icon.png'
@@ -120,8 +121,8 @@ export default function Home() {
       </section>
 
       {/* JOURNEY STEPS */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="w-full py-20" style={{ backgroundColor: 'rgba(29, 42, 61, 0.47)' }}>
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
           <div className="space-y-6">
             <SectionHeading
               align="left"
@@ -173,46 +174,52 @@ export default function Home() {
 
       {/* INDIVIDUALS */}
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
-          <div>
-            <p data-aos="fade-up" className="text-sm font-semibold text-gold-500">Individual Users</p>
-            <h2 data-aos="fade-up" data-aos-delay="60" className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-              Your Financial Journey Starts With You.
-            </h2>
-            <p data-aos="fade-up" data-aos-delay="120" className="mt-4 text-base leading-relaxed text-mist-400">
-              Whether you're saving for your first milestone or planning for long-term
-              success, Finwise helps you make smarter financial decisions every day.
-            </p>
-            <div className="mt-8 flex flex-col divide-y divide-white/5">
-              {individualFeatures.map((f, i) => (
-                <div key={f.title} data-aos="fade-up" data-aos-delay={i * 60} className="flex gap-4 py-4">
-                  <span className="mt-0.5 text-teal-400">{f.icon}</span>
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-white">{f.title}</h3>
-                    <p className="mt-1 text-sm text-mist-400">{f.description}</p>
+        <div className="mx-auto max-w-3xl text-center">
+          <p data-aos="fade-up" className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-500">
+            Individual Users
+          </p>
+          <h2 data-aos="fade-up" data-aos-delay="60" className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+            Your Financial Journey Starts With You.
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="120" className="mt-4 text-base leading-relaxed text-mist-400">
+            Whether you're saving for your first milestone or planning for long-term
+            success, Finwise helps you make smarter financial decisions every day.
+          </p>
+        </div>
+
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div className="space-y-6">
+            {individualFeatures.map((f, i) => (
+              <div
+                key={f.title}
+                // data-aos="fade-left"
+                data-aos-delay={i * 60}
+                className="border-b pb-6 last:border-b-0 last:pb-0"
+                style={{ borderColor: 'rgba(227, 175, 73, 1)' }}
+              >
+                <div className="flex items-start gap-4">
+                  <span className="font-display text-2xl font-bold leading-none text-gold-500 sm:text-3xl">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="font-display text-2xl font-bold leading-tight tracking-[-0.03em] text-white sm:text-[2.1rem]">
+                      {f.title}
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-mist-400 sm:text-lg">
+                      {f.description}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          <div data-aos="fade-left" className="relative flex justify-center">
-            <div className="relative w-full max-w-sm rounded-3xl border border-white/10 bg-gradient-to-b from-ink-700 to-ink-900 p-8">
-              <Wallet className="h-10 w-10 text-gold-500" />
-              <p className="mt-6 text-sm text-mist-400">BFI Score</p>
-              <p className="font-display text-4xl font-extrabold text-white">720</p>
-              <div className="mt-3 h-2 w-full rounded-full bg-ink-600">
-                <div className="h-2 w-4/5 rounded-full bg-gradient-to-r from-teal-400 to-gold-500" />
-              </div>
-              <div className="mt-8 flex items-center gap-3 rounded-xl border border-white/5 bg-ink-800/70 p-4">
-                <PiggyBank className="h-5 w-5 shrink-0 text-teal-400" />
-                <p className="text-xs text-mist-400">House Fund goal is 72% complete &mdash; keep it up.</p>
-              </div>
-              <div className="mt-3 flex items-center gap-3 rounded-xl border border-white/5 bg-ink-800/70 p-4">
-                <Rocket className="h-5 w-5 shrink-0 text-gold-500" />
-                <p className="text-xs text-mist-400">You're eligible for a new savings opportunity.</p>
-              </div>
-            </div>
+          <div data-aos="fade-left" className="relative flex justify-center lg:justify-end">
+            <img
+              src={homePic}
+              alt="Finwise savings and BFI score preview"
+              className="w-full max-w-sm rounded-3xl border border-white/10 object-cover shadow-2xl shadow-black/20"
+            />
           </div>
         </div>
       </section>
@@ -250,19 +257,39 @@ export default function Home() {
           title="Building Better Financial Futures Together."
           description="Hear how individuals and families are building healthier relationships with money through Finwise."
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
-          {testimonials.slice(0, 3).map((t) => (
-            <div key={t.name} data-aos="fade-up" className="rounded-2xl border border-white/5 bg-ink-800/60 p-6">
-              <p className="text-sm italic leading-relaxed text-mist-300">&ldquo;{t.quote}&rdquo;</p>
-              <div className="mt-5 flex items-center gap-3">
-                <PersonAvatar seed={t.avatarSeed} size={40} />
-                <div>
-                  <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-mist-500">{t.role}</p>
+
+        <div className="mt-12 overflow-x-auto pb-3">
+          <div className="flex min-w-max gap-5 md:gap-6">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                // data-aos="fade-up"
+                className="w-[40vw] max-w-[300px] shrink-0 rounded-[10px] border border-white/10 bg-[#0b1c2a] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-6"
+              >
+                <div className="overflow-hidden rounded-[22px] border border-white/10 bg-ink-800/80 p-2">
+                  <PersonAvatar
+                    seed={t.avatarSeed}
+                    size={150}
+                    className="h-[150px] w-[150px] rounded-[18px] object-cover"
+                  />
                 </div>
+
+                <div className="mt-5 flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+                  <div>
+                    <h3 className="font-display text-[1.6rem] font-bold leading-none tracking-[-0.04em] text-white">
+                      {t.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-mist-300">{t.role}</p>
+                  </div>
+
+                </div>
+
+                <p className="mt-5 text-base leading-relaxed text-mist-200 sm:text-lg">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

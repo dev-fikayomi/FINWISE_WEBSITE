@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-6 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <Logo />
+         
 
           <div className="flex items-center gap-3">
             {socialLinks.map((s) => (

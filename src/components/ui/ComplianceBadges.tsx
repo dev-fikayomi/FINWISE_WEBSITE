@@ -1,24 +1,31 @@
-import { ShieldCheck } from 'lucide-react'
+import secLogo from '@/Assest/SEC_LOGO.png'
+import ndicLogo from '@/Assest/ndicLogo-02-removebg-preview 1.png'
+import isoLogo from '@/Assest/iso-logo-png_seeklogo-305564 1.png'
+import ndpcLogo from '@/Assest/NDPC-copped-removebg-preview 1.png'
+import cbnLogo from '@/Assest/role-of-cbn-1-removebg-preview 1.png'
 
 const badges = [
-  { name: 'SEC', desc: 'Securities & Exchange Commission' },
-  { name: 'NDIC', desc: 'Nigeria Deposit Insurance Corp.' },
-  { name: 'ISO', desc: 'ISO Certified Standards' },
-  { name: 'NDPC', desc: 'Nigeria Data Protection Commission' },
+  { src: secLogo, alt: 'SEC logo' },
+  { src: ndicLogo, alt: 'NDIC logo' },
+  { src: isoLogo, alt: 'ISO logo' },
+  { src: ndpcLogo, alt: 'NDPC logo' },
+  { src: cbnLogo, alt: 'CBN logo' },
 ]
 
 export default function ComplianceBadges() {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
       {badges.map((b) => (
         <div
-          key={b.name}
+          key={b.alt}
           data-aos="fade-up"
-          className="flex flex-col items-center gap-2 rounded-xl border border-white/5 bg-ink-800/60 px-4 py-5 text-center"
+          className="flex items-center justify-center"
         >
-          <ShieldCheck className="h-6 w-6 text-teal-400" />
-          <p className="font-display text-sm font-bold text-white">{b.name}</p>
-          <p className="text-[11px] leading-tight text-mist-500">{b.desc}</p>
+          <img
+            src={b.src}
+            alt={b.alt}
+            className="h-10 w-auto max-w-[250px] object-contain opacity-90"
+          />
         </div>
       ))}
     </div>
