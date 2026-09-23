@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '@/components/ui/Logo'
 import { footerGroups, socialLinks } from '@/data/footer'
+import FooterLogo from '@/Assest/footer_Logo.png'
 import SocialIcon from '@/components/ui/SocialIcon'
 
 export default function Footer() {
@@ -85,7 +86,7 @@ export default function Footer() {
       <div className="border-t border-white/5 py-10 text-center">
         <div className="flex justify-center" data-aos="fade-down" data-aos-offset="80" data-aos-duration="700">
           <img
-            src="/src/Assest/footer_Logo.png"
+            src={FooterLogo}
             alt="Finwise footer logo"
             className="h-auto max-w-[500px] object-contain"
           />
