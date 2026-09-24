@@ -85,39 +85,99 @@ export default function SecurityTrust() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <SectionHeading
-          eyebrow="Regulatory & Compliance"
-          title="Built Around the Standards That Matter"
-          description="Finwise is designed around the applicable regulatory, privacy, and financial requirements relevant to its services."
-        />
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
-          {regulatory.map((r) => (
-            <div key={r.title} data-aos="fade-up" className="rounded-2xl border border-white/5 bg-ink-800/60 p-6">
-              <Landmark className="h-6 w-6 text-gold-500" />
-              <h3 className="mt-4 font-display text-base font-semibold text-white">{r.title}</h3>
-              <p className="mt-2 text-sm text-mist-400">{r.description}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10">
-          <ComplianceBadges />
+      <section className="border-t border-white/5 bg-[#071521] py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">Regulatory &amp; Compliance</p>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
+              Built Around the Standards That Matter
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist-300 md:text-lg">
+              Finwise is designed around the applicable regulatory, privacy, and financial requirements relevant to its services.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-3">
+            {regulatory.map((r) => (
+              <div
+                key={r.title}
+                data-aos="fade-up"
+                className="rounded-[28px] border border-white/10 bg-[#101d2e]/90 p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-gold-500/40 bg-[#0d1722] text-gold-500">
+                  <Landmark className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-[1.2rem] font-semibold leading-tight text-white">{r.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-mist-300">{r.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <ComplianceBadges />
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-white/5 bg-ink-900/60 py-20">
+      <section className="border-t border-white/5 bg-[#071521] py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Security & Privacy"
-            title="Built Around Security and Privacy"
-            description="Every connection, permission, and data-sharing action is designed with security, transparency, and user control in mind."
-          />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {built.map((b) => (
-              <div key={b.title} data-aos="fade-up" className="rounded-2xl border border-white/10 bg-gradient-to-b from-ink-700/60 to-ink-800/60 p-6">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500/10 text-gold-500">{b.icon}</div>
-                <h3 className="font-display text-sm font-semibold text-white">{b.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-mist-400">{b.description}</p>
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">Security &amp; Privacy</p>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
+              Built Around Security and Privacy
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist-300 md:text-lg">
+              Every connection, permission, and data-sharing action is designed with security, transparency, and user control in mind.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                title: 'Encrypted Connections',
+                description: 'Information is protected during transmission and storage using modern security standards.',
+                color: 'bg-[#B9BEDF]',
+                icon: <Lock className="h-10 w-10 text-ink-900" />,
+              },
+              {
+                title: 'Permission Controls',
+                description: 'Manage who can access your information and for how long.',
+                color: 'bg-[#C49AE8]',
+                icon: <KeyRound className="h-10 w-10 text-ink-900" />,
+              },
+              {
+                title: 'Verified Access',
+                description: 'Only approved institutions can participate within the Finwise ecosystem.',
+                color: 'bg-[#F6A450]',
+                icon: <ShieldCheck className="h-10 w-10 text-ink-900" />,
+              },
+              {
+                title: 'Full Transparency',
+                description: 'Review and manage your data-sharing activity whenever you choose.',
+                color: 'bg-[#7C8A9A]',
+                icon: <Eye className="h-10 w-10 text-ink-900" />,
+              },
+            ].map((b) => (
+              <div
+                key={b.title}
+                data-aos="fade-up"
+                className={`${b.color} flex min-h-[395px] flex-col rounded-[30px] border border-white/10 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.22)]`}
+              >
+                <div className="mx-auto mt-2 flex h-40 w-40 items-center justify-center rounded-[24px] border-[8px] border-[#f2d8a0] bg-[#e7d8c2] shadow-[inset_0_6px_12px_rgba(255,255,255,0.4),0_12px_25px_rgba(0,0,0,0.15)]">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-[#d2b774] bg-[#f5e8cf] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border-[4px] border-[#d2b774] bg-[#edf3f7] text-[#1a2733]">
+                      {b.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="mt-7 text-center font-display text-[1.05rem] font-semibold leading-tight text-ink-950 md:text-[1.3rem]">
+                  {b.title}
+                </h3>
+
+                <p className="mt-3 text-center text-base leading-relaxed text-[#1e2d3a]">
+                  {b.description}
+                </p>
               </div>
             ))}
           </div>

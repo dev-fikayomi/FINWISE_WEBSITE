@@ -8,13 +8,19 @@ import {
   BadgeCheck,
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import homeHero from '@/Assest/new_Home.png'
+import homeHero from '@/Assest/image 35.png'
 import homeScreenMock from '@/Assest/Home_Screen_Mock.png'
 import homePic from '@/Assest/Home_Pic.png'
 import familyAccount from '@/Assest/Family_Account_Icon.png'
 import TaskReward from '@/Assest/Task&Reward.png'
 import ChildAccount from '@/Assest/Child_Account_Profile_Icon.png'
+import SharedFamily from '@/Assest/Shared_Family.png'
 import familyBackground from '@/Assest/Frame 1272629187.png'
+import LegalPlanning from '@/Assest/Legal_Planning.png'
+import SpouseLinking from '@/Assest/Spouse_Linking.png'
+import CardService from '@/Assest/Card_Service.png'
+import FinwiseTag from '@/Assest/Finwise_Tag.png'
+import BankTransfer from '@/Assest/Bank_Transfer.png'
 import { SectionHeading, StatItem, IconTile } from '@/components/ui/Atoms'
 import PersonAvatar from '@/components/ui/PersonAvatar'
 import ComplianceBadges from '@/components/ui/ComplianceBadges'
@@ -48,15 +54,15 @@ const journeySteps = [
 ]
 
 const familyFeatures = [
-  { icon: <img src={familyAccount} alt="Family Accounts" className="h-6 w-6 rounded-md object-cover" />, title: 'Family Accounts', description: 'Stay connected to your children’s activities, goals and financial progress while keeping everyone’s account independent.' },
-  { icon: <img src={ChildAccount} alt="Child Financial Profiles" className="h-6 w-6 rounded-md object-cover" />, title: 'Child Financial Profiles', description: 'Create personalized financial experiences for each child based on their needs and learning stage.' },
-  { icon: <img src={TaskReward} alt="Tasks & Rewards" className="h-6 w-6 rounded-md object-cover" />, title: 'Tasks & Rewards', description: 'Turn everyday responsibilities into rewarding financial lessons that encourage positive behaviour by creating tasks, set rewards.' },
-  { icon: <img src={familyAccount} alt="Shared Family Goals" className="h-6 w-6 rounded-md object-cover" />, title: 'Shared Family Goals', description: 'Set and achieve meaningful financial goals together, from family experiences to education and future savings.' },
-  { icon: <img src={familyAccount} alt="Legacy Planning" className="h-6 w-6 rounded-md object-cover" />, title: 'Legacy Planning', description: 'Encourage long-term saving, responsible money habits and a mindset that prepares your family for the future.' },
-  { icon: <img src={familyAccount} alt="Spouse Linking" className="h-6 w-6 rounded-md object-cover" />, title: 'Spouse Linking', description: 'Connect securely and choose exactly what they can view or manage across all family finances.' },
-  { icon: <img src={familyAccount} alt="Virtual Cards" className="h-6 w-6 rounded-md object-cover" />, title: 'Virtual Cards', description: 'Create virtual cards instantly for online purchases, set individual spending limits, lock cards to specific merchants and stay in control of every transaction.' },
-  { icon: <img src={familyAccount} alt="FinWise Tag" className="h-6 w-6 rounded-md object-cover" />, title: 'FinWise Tag', description: 'Create your unique FinWise Tag and make instant, fee-free transfers to other FinWise users — simple, memorable and built for everyday payments.' },
-  { icon: <img src={familyAccount} alt="Bank Transfers" className="h-6 w-6 rounded-md object-cover" />, title: 'Bank Transfers', description: 'Transfer directly from your FinWise Wallet to any Nigerian bank account, save frequent recipients as beneficiaries and know the cost and status before you confirm.' },
+  { icon: <img src={familyAccount} alt="Family Accounts" className="h-10 w-10  object-cover" />, title: 'Family Accounts', description: 'Stay connected to your children’s activities, goals and financial progress while keeping everyone’s account independent.' },
+  { icon: <img src={ChildAccount} alt="Child Financial Profiles" className="h-10 w-10  object-cover" />, title: 'Child Financial Profiles', description: 'Create personalized financial experiences for each child based on their needs and learning stage.' },
+  { icon: <img src={TaskReward} alt="Tasks & Rewards" className="h-10 w-10  object-cover" />, title: 'Tasks & Rewards', description: 'Turn everyday responsibilities into rewarding financial lessons that encourage positive behaviour by creating tasks, set rewards.' },
+  { icon: <img src={SharedFamily} alt="Shared Family Goals" className="h-10 w-10  object-cover" />, title: 'Shared Family Goals', description: 'Set and achieve meaningful financial goals together, from family experiences to education and future savings.' },
+  { icon: <img src={LegalPlanning} alt="Legacy Planning" className="h-10 w-10  object-cover" />, title: 'Legacy Planning', description: 'Encourage long-term saving, responsible money habits and a mindset that prepares your family for the future.' },
+  { icon: <img src={SpouseLinking} alt="Spouse Linking" className="h-10 w-10  object-cover" />, title: 'Spouse Linking', description: 'Connect securely and choose exactly what they can view or manage across all family finances.' },
+  { icon: <img src={CardService} alt="Virtual Cards" className="h-10 w-10  object-cover" />, title: 'Virtual Cards', description: 'Create virtual cards instantly for online purchases, set individual spending limits, lock cards to specific merchants and stay in control of every transaction.' },
+  { icon: <img src={FinwiseTag} alt="FinWise Tag" className="h-10 w-10  object-cover" />, title: 'FinWise Tag', description: 'Create your unique FinWise Tag and make instant, fee-free transfers to other FinWise users — simple, memorable and built for everyday payments.' },
+  { icon: <img src={BankTransfer} alt="Bank Transfers" className="h-10 w-[126px]  object-cover" />, title: 'Bank Transfers', description: 'Transfer directly from your FinWise Wallet to any Nigerian bank account, save frequent recipients as beneficiaries and know the cost and status before you confirm.' },
 ]
 
 const individualFeatures = [
@@ -257,39 +263,19 @@ export default function Home() {
           title="Building Better Financial Futures Together."
           description="Hear how individuals and families are building healthier relationships with money through Finwise."
         />
-
-        <div className="mt-12 overflow-x-auto pb-3">
-          <div className="flex min-w-max gap-5 md:gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                // data-aos="fade-up"
-                className="w-[40vw] max-w-[300px] shrink-0 rounded-[10px] border border-white/10 bg-[#0b1c2a] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-6"
-              >
-                <div className="overflow-hidden rounded-[22px] border border-white/10 bg-ink-800/80 p-2">
-                  <PersonAvatar
-                    seed={t.avatarSeed}
-                    size={150}
-                    className="h-[150px] w-[150px] rounded-[18px] object-cover"
-                  />
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          {testimonials.slice(0, 3).map((t) => (
+            <div key={t.name} data-aos="fade-up" className="rounded-2xl border border-white/5 bg-ink-800/60 p-6">
+              <p className="text-sm italic leading-relaxed text-mist-300">&ldquo;{t.quote}&rdquo;</p>
+              <div className="mt-5 flex items-center gap-3">
+                <PersonAvatar seed={t.avatarSeed} size={40} />
+                <div>
+                  <p className="text-sm font-semibold text-white">{t.name}</p>
+                  <p className="text-xs text-mist-500">{t.role}</p>
                 </div>
-
-                <div className="mt-5 flex items-center justify-between gap-3 border-b border-white/10 pb-4">
-                  <div>
-                    <h3 className="font-display text-[1.6rem] font-bold leading-none tracking-[-0.04em] text-white">
-                      {t.name}
-                    </h3>
-                    <p className="mt-2 text-sm text-mist-300">{t.role}</p>
-                  </div>
-
-                </div>
-
-                <p className="mt-5 text-base leading-relaxed text-mist-200 sm:text-lg">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
