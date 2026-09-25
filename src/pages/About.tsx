@@ -188,7 +188,7 @@ export default function About() {
               Helping people build better relationships with money.
             </h2>
             <p data-aos="fade-up" data-aos-delay="120" className="mt-5 text-sm leading-relaxed text-mist-400">
-              Finwise exists to make financial literacy practical, personal, and continuous.
+              Finwise exists to make financial literacy practical, personal, and continuous for every individual.
               We combine behavioural intelligence, savings tools, family financial
               management, education, and access to trusted financial services to help
               people make better decisions throughout different stages of life.
