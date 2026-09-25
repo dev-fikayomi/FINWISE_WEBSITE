@@ -19,7 +19,7 @@ const beliefs = [
 ]
 
 const approach = [
-  { title: 'Behaviour First', description: 'Financial products become more useful when they\u2019re informed by how people actually behave.' },
+  { title: 'Behaviour First', description: 'Financial products become more useful when they are informed by how people actually behave.' },
   { title: 'Partner Powered', description: 'Finwise works through trusted financial institutions and partners for financial services it does not provide directly.' },
   { title: 'Family Connected', description: 'Parents and children can build financial capability together while maintaining appropriate controls and protections.' },
   { title: 'Designed for the Long Term', description: 'From a first savings goal to family planning and legacy allocation, Finwise is designed around financial progress over time.' },
