@@ -8,7 +8,7 @@ import PersonAvatar from '@/components/ui/PersonAvatar'
 import AboutHero from '@/Assest/About_hero.png'
 import FinwiseIcon from '@/Assest/finwise.png'
 import MiniMap from '@/Assest/MiniMap.png'
-import CompassImage from '@/Assest/compass.png' 
+import CompassImage from '@/Assest/compassImage.png' 
 import HomePic from '@/Assest/Home_Pic.png'
 import Button from '@/components/ui/Button'
 
