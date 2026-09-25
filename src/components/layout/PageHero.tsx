@@ -9,6 +9,7 @@ interface PageHeroProps {
   primaryCta?: { label: string; to: string }
   secondaryCta?: { label: string; to: string }
   media?: ReactNode
+  backgroundImage?: string
   stats?: { value: string; label: string }[]
 }
 
@@ -19,10 +20,32 @@ export default function PageHero({
   primaryCta = { label: 'Get Started', to: '/contact' },
   secondaryCta = { label: 'See how BFI works', to: '/bfi' },
   media,
+  backgroundImage,
   stats,
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-white/5">
+    <section
+      className="relative overflow-hidden border-b border-white/5"
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `linear-gradient(90deg, rgba(5, 10, 14, 0.88) 0%, rgba(5, 10, 14, 0.72) 38%, rgba(5, 10, 14, 0.38) 100%), url(${backgroundImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }
+          : undefined
+      }
+    >
+      {backgroundImage && (
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(55% 45% at 85% 5%, rgba(63,227,196,0.14), transparent), radial-gradient(35% 35% at 5% 90%, rgba(238,171,60,0.10), transparent)',
+          }}
+        />
+      )}
+
       <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pt-10">
         <div className="mb-8" data-aos="fade-up">
           <Breadcrumb trail={[{ label: 'Home', href: '/' }, { label: crumb }]} />

@@ -106,7 +106,7 @@ export default function Home() {
               className="mt-6 max-w-lg text-base leading-relaxed text-mist-200"
             >
               Finwise helps individuals and families create intentional financial plans,
-              develop healthier money habits, and achieve lifelong financial goals &mdash;
+              develop healthier money habits, and achieve lifelong financial goals 
               all powered by Behavioral Financial Intelligence (BFI).
             </p>
             <div data-aos="fade-up" data-aos-delay="180" className="mt-8 flex flex-wrap gap-3">

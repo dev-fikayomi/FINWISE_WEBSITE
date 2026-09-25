@@ -4,6 +4,7 @@ import OrbitVisual from '@/components/ui/OrbitVisual'
 import { SectionHeading, NumberedRow, Card } from '@/components/ui/Atoms'
 import careersHero from '@/Assest/Career_hero.png'
 import Button from '@/components/ui/Button'
+import CareerImage from '@/Assest/career.png'
 
 const why = [
   { title: 'Meaningful Impact', description: 'Build products that help people understand money and create healthier financial habits.' },
@@ -72,8 +73,12 @@ export default function Career() {
             title="Thoughtful people. Ambitious ideas. Meaningful work."
           />
           <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
-            <div data-aos="fade-right" className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-white/10 bg-gradient-to-br from-teal-500/10 to-ink-900">
-              <Users className="h-16 w-16 text-teal-400/70" strokeWidth={1.2} />
+            <div data-aos="" className="flex aspect-[4/3] rounder ">
+            <img
+              src={CareerImage}
+              alt="People working together"
+              className="h-[460px] w-full object-cover object-center"
+            />
             </div>
             <div className="flex flex-col divide-y divide-white/5">
               {howWeWork.map((h) => (

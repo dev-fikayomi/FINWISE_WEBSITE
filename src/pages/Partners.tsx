@@ -3,8 +3,11 @@ import { Handshake, Radar, Eye, Link2, KeyRound, Filter, ShieldCheck, CheckCircl
 import PageHero from '@/components/layout/PageHero'
 import OrbitVisual from '@/components/ui/OrbitVisual'
 import ParthnershipHero from '@/Assest/Parthner_hero.png'
+// import SharedFamily from '@/Assest/Shared_Family.png'
 import { SectionHeading, NumberedRow } from '@/components/ui/Atoms'
 import Button from '@/components/ui/Button'
+import FinwiseLogo from '@/Assest/finwise.png'
+import PartnerLogo from '@/Assest/Pathner_image.png'
 
 const steps = [
   { number: 1, title: 'Reach', description: 'Connect with users who are actively building better financial habits and working toward their financial goals.' },
@@ -13,9 +16,9 @@ const steps = [
 ]
 
 const trust = [
-  { icon: <KeyRound className="h-5 w-5" />, title: 'Permission-Based Access', description: 'Partners only receive access to information that users have explicitly permitted.' },
-  { icon: <Filter className="h-5 w-5" />, title: 'Data Minimization', description: 'Only relevant, permissioned information is shared for the intended use.' },
-  { icon: <ShieldCheck className="h-5 w-5" />, title: 'Secure Infrastructure', description: 'Financial data is handled through secure systems and controlled access mechanisms.' },
+  { icon:  <img src={FinwiseLogo} alt="Finwise" /> , title: 'Permission-Based Access', description: 'Partners only receive access to information that users have explicitly permitted.' },
+  { icon:  <img src={FinwiseLogo} alt="Finwise" /> , title: 'Data Minimization', description: 'Only relevant, permissioned information is shared for the intended use.' },
+  { icon:  <img src={FinwiseLogo} alt="Finwise" /> , title: 'Secure Infrastructure', description: 'Financial data is handled through secure systems and controlled access mechanisms.' },
 ]
 
 const control = [
@@ -56,14 +59,39 @@ export default function Partners() {
      </div>
      </div>
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <SectionHeading
-          eyebrow="How It Works"
-          title="A smarter way to connect with financially engaged users."
-          description="Finwise enables financial institutions and credit providers to connect with users through a structured, consent-based integration model."
-        />
-        <div className="mt-12 grid gap-4">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">
+            How It Works
+          </p>
+          <h2 className="font-display text-[2.8rem] font-bold leading-[1.05] tracking-[-0.05em] text-white sm:text-[4rem]">
+            A smarter way to connect with financially engaged users.
+          </h2>
+          <p className="mx-auto mt-5 max-w-4xl text-base leading-relaxed text-mist-300 sm:text-[1.2rem]">
+            Finwise enables financial institutions and credit providers to connect with users through a structured,
+            consent-based integration model.
+          </p>
+        </div>
+
+        <div className="mt-14 space-y-5">
           {steps.map((s) => (
-            <NumberedRow key={s.title} {...s} />
+            <div
+              key={s.title}
+              data-aos="fade-up"
+              className="mx-auto flex max-w-[1180px] items-center gap-6 rounded-[26px] border border-white/10 bg-[#1c2a38]/80 px-4 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_28px_rgba(0,0,0,0.12)] sm:px-6 sm:py-6"
+            >
+              <div className="flex h-[92px] w-[92px] shrink-0 items-center justify-center rounded-[16px] border border-[#d9c27d]/30 bg-[#2a3542] font-display text-[2.4rem] font-bold text-gold-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:h-[108px] sm:w-[124px] sm:text-[3rem]">
+                {s.number}
+              </div>
+
+              <div className="flex flex-1 items-center gap-4 text-left sm:gap-8">
+                <h3 className="font-display text-[1.7rem] font-semibold leading-none text-white sm:text-[2.2rem]">
+                  {s.title}
+                </h3>
+                <p className="max-w-3xl text-base leading-relaxed text-mist-300 sm:text-[1.1rem]">
+                  {s.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -78,7 +106,7 @@ export default function Partners() {
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {trust.map((t) => (
               <div key={t.title} data-aos="fade-up" className="rounded-2xl border border-white/5 bg-ink-800/60 p-6">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-teal-400/30 bg-teal-500/10 text-teal-400">{t.icon}</div>
+                <div className="mb-4 flex h-11 w-11 ">{t.icon}</div>
                 <h3 className="font-display text-base font-semibold text-white">{t.title}</h3>
                 <p className="mt-2 text-sm text-mist-400">{t.description}</p>
               </div>
@@ -88,22 +116,51 @@ export default function Partners() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <SectionHeading
-          eyebrow="User Control"
-          title="Users stay in control of their data."
-          description="Finwise's consent framework gives users visibility and control over how their financial information is shared with partners."
-        />
-        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
-          <div data-aos="fade-right" className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-white/10 bg-gradient-to-br from-ink-700 to-ink-900">
-            <Handshake className="h-16 w-16 text-gold-500/70" strokeWidth={1.2} />
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">
+            User Control
+          </p>
+          <h2 className="font-display text-[2.8rem] font-bold leading-[1.05] tracking-[-0.05em] text-white sm:text-[4rem]">
+            Users stay in control of their data.
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist-300 sm:text-[1.2rem]">
+            Finwise&apos;s consent framework gives users visibility and control over how their financial information is shared with partners.
+          </p>
+        </div>
+
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.08fr_1.2fr]">
+          <div
+            data-aos="fade-right"
+            className="overflow-hidden rounded-[28px] border border-white/10 bg-[#1b2d3d] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+          >
+            <img
+              src={PartnerLogo}
+              alt="People working together"
+              className="h-[460px] w-full object-cover object-center"
+            />
           </div>
-          <div className="flex flex-col divide-y divide-white/5">
-            {control.map((c) => (
-              <div key={c.title} data-aos="fade-up" className="flex gap-4 py-4">
-                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-gold-500/30 text-gold-500">{c.icon}</div>
-                <div>
-                  <h3 className="font-display text-base font-semibold text-white">{c.title}</h3>
-                  <p className="mt-1 text-sm text-mist-400">{c.description}</p>
+
+          <div className="flex flex-col">
+            {control.map((c, index) => (
+              <div
+                key={c.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
+                className="border-t border-white/8 py-5 first:border-t-0 first:pt-0"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-gold-500">
+                    <span className="text-xl leading-none">→</span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-display text-[1.7rem] font-semibold leading-snug text-white">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-base leading-relaxed text-mist-300">
+                      {c.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

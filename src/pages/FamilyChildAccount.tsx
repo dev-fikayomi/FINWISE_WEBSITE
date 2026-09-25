@@ -1,8 +1,8 @@
 import { Users2, BatteryCharging, Lock, KeyRound, Wallet2, ShieldCheck, KeySquare, ShieldAlert, LayoutDashboard } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
-import OrbitVisual from '@/components/ui/OrbitVisual'
 import { SectionHeading, NumberedRow } from '@/components/ui/Atoms'
 import Button from '@/components/ui/Button'
+import FamilyChildHero from '@/Assest/Family&Child.png'
 
 const steps = [
   { title: 'Create Your Family Account', description: 'Start by setting up your primary parent or guardian account. This becomes the foundation for managing your family\u2019s financial activities, goals, children and permissions.' },
@@ -27,11 +27,12 @@ const security = [
 export default function FamilyChildAccount() {
   return (
     <div>
+     
       <PageHero
         crumb="Family & Child Account"
         title="Build Financial Confidence Across Generations."
         description="Create and manage family financial profiles, guide your children's financial journey, and gain a complete view of your family's progress \u2014 all from one place."
-        media={<OrbitVisual icon={<Users2 className="h-10 w-10" />} tone="gold" size="lg" badges={[<Lock className="h-4 w-4" />, <KeyRound className="h-4 w-4" />]} />}
+        backgroundImage={FamilyChildHero}
         stats={[
           { value: '1K+', label: 'Families connected' },
           { value: '1K+', label: 'Child profiles created' },
@@ -39,6 +40,7 @@ export default function FamilyChildAccount() {
           { value: '\u20a62M+', label: 'Family goals created' },
         ]}
       />
+      
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <SectionHeading
@@ -126,5 +128,6 @@ export default function FamilyChildAccount() {
         </div>
       </section>
     </div>
+    
   )
 }

@@ -118,7 +118,10 @@ export default function BFIEngine() {
       <section className="relative overflow-hidden py-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-          style={{ backgroundImage: `url(${BFi_Sub_Hero})` }}
+          style={{
+            backgroundImage: `url(${BFi_Sub_Hero})`,
+            backgroundAttachment: 'fixed',
+          }}
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(10,22,31,0.30),_rgba(7,18,28,0.80)_58%,_rgba(7,18,28,0.92))]" />
 
