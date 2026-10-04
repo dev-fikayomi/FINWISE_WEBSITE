@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 
@@ -82,10 +82,64 @@ export function Breadcrumb({ trail }: { trail: { label: string; href?: string }[
 }
 
 export function StatItem({ value, label }: { value: string; label: string }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [count, setCount] = useState(0)
+  const valueParts = value.match(/^([^0-9]*)([\d,.]+)([KMB]?)(\+?)$/i)
+  const number = valueParts ? Number(valueParts[2].replace(/,/g, '')) : 0
+  const multiplier = valueParts
+    ? { K: 1_000, M: 1_000_000, B: 1_000_000_000 }[valueParts[3].toUpperCase() as 'K' | 'M' | 'B'] || 1
+    : 1
+  const target = number * multiplier
+
+  useEffect(() => {
+    const parts = value.match(/^([^0-9]*)([\d,.]+)([KMB]?)(\+?)$/i)
+    const container = containerRef.current
+    if (!container || !parts) return
+
+    let frame = 0
+
+    const finish = () => setCount(target)
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+
+      observer.disconnect()
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        finish()
+        return
+      }
+
+      const startedAt = performance.now()
+      const duration = 1200
+      const animate = (now: number) => {
+        const progress = Math.min((now - startedAt) / duration, 1)
+        const easedProgress = 1 - (1 - progress) ** 3
+        setCount(target * easedProgress)
+
+        if (progress < 1) frame = requestAnimationFrame(animate)
+        else finish()
+      }
+
+      frame = requestAnimationFrame(animate)
+    }, { threshold: 0.35 })
+
+    observer.observe(container)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frame)
+    }
+  }, [target, value])
+
+  const displayValue = valueParts
+    ? count >= target
+      ? value
+      : `${valueParts[1]}${new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(count)}${valueParts[4]}`
+    : value
+
   return (
-    <div data-aos="fade-up">
+    <div ref={containerRef} data-aos="fade-up">
       <p className="font-display text-3xl font-extrabold text-gold-500 sm:text-4xl">
-        {value}
+        <span aria-hidden="true">{displayValue}</span>
+        <span className="sr-only">{value}</span>
       </p>
       <p className="mt-1 text-sm text-mist-400">{label}</p>
     </div>
@@ -128,15 +182,17 @@ export function IconTile({
   icon,
   title,
   description,
+  className = '',
 }: {
   icon: ReactNode
   title: string
   description: string
+  className?: string
 }) {
   return (
     <div
       data-aos="fade-up"
-      className="group h-full rounded-[24px]  border-transparent bg-[#1D2A3D78]/10 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors hover:border-gold-400/30"
+      className={`group h-full rounded-[24px] border-transparent bg-[#1D2A3D78]/10 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors hover:border-gold-400/30 ${className}`}
     >
       <div className="mb-5 flex h-14 w-10 items-center justify-center rounded-2xl shadow-black/20">
         {icon}

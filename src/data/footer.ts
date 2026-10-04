@@ -26,11 +26,11 @@ export const footerGroups: FooterGroup[] = [
     title: 'Products',
     links: [
       { label: 'Credit & Risk Management', href: '/credit-risk' },
-      { label: 'Kids Financial Learning App', href: '/solution/families' },
+      // { label: 'Kids Financial Learning App', href: '/solution/families' },
       { label: 'Savings & Goal', href: '/savings-goal' },
       { label: 'Family & Child Account', href: '/family-child-account' },
       { label: 'Allowance & Task System', href: '/allowance-tasks' },
-      { label: 'Family Legacy & Asset Allocation', href: '/solution/families' },
+      // { label: 'Family Legacy & Asset Allocation', href: '/solution/families' },
     ],
   },
   {

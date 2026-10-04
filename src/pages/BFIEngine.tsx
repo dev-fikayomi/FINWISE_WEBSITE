@@ -91,12 +91,32 @@ export default function BFIEngine() {
 
       <section className="relative overflow-hidden border-t border-white/5 py-20">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
           style={{ backgroundImage: `url(${bfiSubHeroImage})` }}
         />
-        <div className="absolute inset-0 bg-[#071521]/20" />
+        <div className="absolute inset-0 hidden bg-[#071521]/20 md:block" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="min-h-[420px]" />
+          <div className="hidden min-h-[420px] md:block" />
+          <div className="md:hidden">
+            <h2 className="mx-auto mb-10 max-w-xl text-center font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+              Meet Behavioral Financial Intelligence.
+            </h2>
+            <div className="flex flex-col gap-5">
+              {pillars.map((pillar) => (
+                <article
+                  key={pillar.title}
+                  className="rounded-[32px] bg-gradient-to-b from-[#001d49] to-[#101f36] p-6 sm:p-8"
+                >
+                  <h3 className="font-display text-xl font-semibold text-white">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-relaxed text-mist-300 sm:text-lg">
+                    {pillar.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

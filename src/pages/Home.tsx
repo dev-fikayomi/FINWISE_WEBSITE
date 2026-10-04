@@ -98,7 +98,15 @@ export default function Home() {
               className="font-display text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]"
             >
               Build better money habits. A smarter financial life for{' '}
-              <span className="text-gold-500">everyone.</span>
+              <span className="relative inline-block h-[1.08em] overflow-hidden align-bottom text-gold-500">
+                <span className="sr-only">everyone, families, and individuals.</span>
+                <span className="word-rotate-track block" aria-hidden="true">
+                  <span>everyone.</span>
+                  <span>families.</span>
+                  <span>individuals.</span>
+                  <span>everyone.</span>
+                </span>
+              </span>
             </h1>
             <p
               data-aos="fade-up"
@@ -161,6 +169,7 @@ export default function Home() {
           backgroundImage: `linear-gradient(180deg, rgba(10, 15, 18, 0.72), rgba(10, 15, 18, 0.86)), url(${familyBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(rgba(29, 42, 61, 0.47)),_transparent_35%)]" />
@@ -172,7 +181,11 @@ export default function Home() {
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {familyFeatures.map((f) => (
-              <IconTile key={f.title} {...f} />
+              <IconTile
+                key={f.title}
+                {...f}
+                className="transition-all duration-300 hover:-translate-y-1 hover:bg-[#0B2342] hover:shadow-xl hover:shadow-blue-950/30"
+              />
             ))}
           </div>
         </div>

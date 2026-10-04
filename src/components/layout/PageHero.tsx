@@ -10,6 +10,7 @@ interface PageHeroProps {
   secondaryCta?: { label: string; to: string }
   media?: ReactNode
   backgroundImage?: string
+  backgroundGlow?: boolean
   stats?: { value: string; label: string }[]
 }
 
@@ -21,6 +22,7 @@ export default function PageHero({
   secondaryCta = { label: 'See how BFI works', to: '/bfi' },
   media,
   backgroundImage,
+  backgroundGlow = true,
   stats,
 }: PageHeroProps) {
   return (
@@ -36,7 +38,7 @@ export default function PageHero({
           : undefined
       }
     >
-      {backgroundImage && (
+      {backgroundImage && backgroundGlow && (
         <div
           className="pointer-events-none absolute inset-0"
           style={{

@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '@/components/ui/Logo'
 import { footerGroups, socialLinks } from '@/data/footer'
 import FooterLogo from '@/Assest/footer_Logo.png'
 import SocialIcon from '@/components/ui/SocialIcon'
@@ -18,19 +17,19 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-white/5 bg-ink-950">
-      <div className="mx-auto max-w-7xl px-5 pb-10 pt-16 sm:px-8">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-5 pb-8 pt-12 sm:px-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-5 sm:gap-x-7">
           {footerGroups.map((group) => (
             <div key={group.title}>
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-mist-100">
+              <h4 className="text-sm font-medium uppercase text-mist-100">
                 {group.title}
               </h4>
-              <ul className="mt-4 flex flex-col gap-2.5">
+              <ul className="mt-3 flex flex-col gap-2">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-sm text-mist-400 transition-colors hover:text-gold-500"
+                      className="text-xs leading-4 text-mist-400 transition-colors hover:text-gold-500"
                     >
                       {link.label}
                     </Link>
@@ -39,56 +38,55 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-        </div>
+          <div className="col-span-2 flex min-h-44 flex-col justify-between sm:col-span-1 sm:min-h-[244px]">
+            <div className="flex items-center gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 text-gold-500 transition-colors hover:border-gold-500/50 hover:bg-ink-800 hover:text-gold-400"
+                >
+                  <SocialIcon name={s.icon} className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
 
-        <div className="mt-12 flex flex-col gap-6 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
-         
-
-          <div className="flex items-center gap-3">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-mist-300 transition-colors hover:border-gold-500/50 hover:text-gold-500"
+            <form onSubmit={handleSubmit} className="flex w-full max-w-sm overflow-hidden rounded-xl border border-white/10 bg-ink-800 sm:max-w-none">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                className="min-w-0 flex-1 bg-white/5 px-4 py-3 text-xs text-white placeholder:text-mist-300 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-gold-500"
+              />
+              <button
+                type="submit"
+                className="shrink-0 bg-gold-500 px-5 py-3 text-xs font-semibold text-white transition-colors hover:bg-gold-400"
               >
-                <SocialIcon name={s.icon} className="h-4 w-4" />
-              </a>
-            ))}
+                {submitted ? 'Thanks!' : 'Subscribe'}
+              </button>
+            </form>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex w-full max-w-sm gap-2 sm:w-auto">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="w-full rounded-full border border-white/10 bg-ink-800 px-4 py-2.5 text-sm text-white placeholder:text-mist-500 focus:border-gold-500 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="shrink-0 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-gold-400"
-            >
-              {submitted ? 'Thanks!' : 'Subscribe'}
-            </button>
-          </form>
         </div>
 
-        <p className="mt-8 text-xs text-mist-500">
-          © {new Date().getFullYear()} FSIL. All savings and credit products are provided by
-          licensed partner institutions.
-        </p>
+        <div className="mt-7 border-t border-white/50 pt-4">
+          <p className="text-[11px] text-mist-400">
+            © {new Date().getFullYear()} Finwise. All savings and credit products are provided by licensed partner institutions.
+          </p>
+        </div>
       </div>
 
-      <div className="border-t border-white/5 py-10 text-center">
-        <div className="flex justify-center" data-aos="fade-down" data-aos-offset="80" data-aos-duration="700">
+      <div className="bg-black px-5 py-12 text-center sm:py-16">
+        <div className="mx-auto flex justify-center" data-aos="fade-down" data-aos-offset="80" data-aos-duration="700">
           <img
             src={FooterLogo}
             alt="Finwise footer logo"
-            className="h-auto max-w-[500px] object-contain"
+            className="h-auto w-full max-w-[1000px] object-contain"
           />
         </div>
       </div>

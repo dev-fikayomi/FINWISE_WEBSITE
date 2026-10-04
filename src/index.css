@@ -47,6 +47,28 @@ h1, h2, h3, h4, .font-display {
   color: var(--color-ink-950);
 }
 
+.word-rotate-track {
+  animation: word-rotate-up 9s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.word-rotate-track > span {
+  display: block;
+  line-height: 1.08;
+}
+
+@keyframes word-rotate-up {
+  0%, 22% { transform: translateY(0); }
+  28%, 50% { transform: translateY(-1.08em); }
+  56%, 78% { transform: translateY(-2.16em); }
+  84%, 100% { transform: translateY(-3.24em); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rotate-track {
+    animation: none;
+  }
+}
+
 /* subtle scrollbar */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--color-ink-950); }

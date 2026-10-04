@@ -1,15 +1,16 @@
 import secLogo from '@/Assest/SEC_LOGO.png'
-import ndicLogo from '@/Assest/ndicLogo-02-removebg-preview 1.png'
+// import ndicLogo from '@/Assest/ndicLogo-02-removebg-preview 1.png'
 import isoLogo from '@/Assest/iso-logo-png_seeklogo-305564 1.png'
 import ndpcLogo from '@/Assest/NDPC-copped-removebg-preview 1.png'
 import cbnLogo from '@/Assest/role-of-cbn-1-removebg-preview 1.png'
+import Pci from '@/Assest/Pci_Dss.png'
 
 const badges = [
   { src: secLogo, alt: 'SEC logo' },
-  { src: ndicLogo, alt: 'NDIC logo' },
   { src: isoLogo, alt: 'ISO logo' },
   { src: ndpcLogo, alt: 'NDPC logo' },
   { src: cbnLogo, alt: 'CBN logo' },
+  { src: Pci, alt: 'PCI DSS logo' },
 ]
 
 export default function ComplianceBadges() {

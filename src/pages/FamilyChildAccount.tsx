@@ -1,8 +1,15 @@
-import { Users2, BatteryCharging, Lock, KeyRound, Wallet2, ShieldCheck, KeySquare, ShieldAlert, LayoutDashboard } from 'lucide-react'
+import { BatteryCharging, Lock, KeyRound, Wallet2, ShieldCheck, KeySquare, ShieldAlert } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
 import { SectionHeading, NumberedRow } from '@/components/ui/Atoms'
 import Button from '@/components/ui/Button'
 import FamilyChildHero from '@/Assest/Family&Child.png'
+import FamilyChildrenImage from '@/Assest/children_.png'
+import ManWoman from '@/Assest/Man_Woman.png'
+import BoyAlone from '@/Assest/small_boy.png'
+import FamilyLockImage from '@/Assest/lock.png'
+import ManOnSuiteImage from '@/Assest/man_pix.png'
+import FinwiseMark from '@/Assest/finwise.png'
+import DashboardIcon from '@/Assest/mingcute_dashboard-4-line.png'
 
 const steps = [
   { title: 'Create Your Family Account', description: 'Start by setting up your primary parent or guardian account. This becomes the foundation for managing your family\u2019s financial activities, goals, children and permissions.' },
@@ -31,7 +38,7 @@ export default function FamilyChildAccount() {
       <PageHero
         crumb="Family & Child Account"
         title="Build Financial Confidence Across Generations."
-        description="Create and manage family financial profiles, guide your children's financial journey, and gain a complete view of your family's progress \u2014 all from one place."
+        description="Create and manage family financial profiles, guide your children's financial journey, and gain a complete view of your family's progress  all from one place."
         backgroundImage={FamilyChildHero}
         stats={[
           { value: '1K+', label: 'Families connected' },
@@ -83,7 +90,7 @@ export default function FamilyChildAccount() {
         <div className="mt-12 grid items-center gap-8 lg:grid-cols-2">
           <div data-aos="fade-right" className="rounded-2xl border border-white/10 bg-ink-800/80 p-7">
             <div className="mb-5 flex items-center gap-2 text-teal-400">
-              <LayoutDashboard className="h-5 w-5" />
+              <img src={DashboardIcon} alt="" aria-hidden="true" className="h-5 w-5 object-contain" />
               <span className="text-sm font-semibold text-white">Family Dashboard Overview</span>
             </div>
             {[
@@ -97,12 +104,32 @@ export default function FamilyChildAccount() {
                 <p className="mt-1 text-sm text-mist-400">{row.description}</p>
               </div>
             ))}
-            <Button to="/contact" variant="ghost" className="mt-4 w-full">Family Net Worth</Button>
+            <Button to="/contact" variant="ghost" className="mt-4 w-full">
+              <img src={DashboardIcon} alt="" aria-hidden="true" className="h-5 w-5 object-contain" />
+              Family Net Worth
+            </Button>
           </div>
           <div data-aos="fade-left" className="grid grid-cols-2 gap-4">
-            {[Users2, ShieldCheck, Wallet2, KeyRound].map((Icon, i) => (
-              <div key={i} className="flex aspect-square items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-ink-700 to-ink-900">
-                <Icon className="h-8 w-8 text-gold-500/80" strokeWidth={1.3} />
+            {[
+              { src: ManOnSuiteImage, alt: 'Man on suite' },
+              { src: FamilyChildrenImage, alt: 'Children using a tablet together' },
+              { src: ManWoman, alt: 'Financial access key' },
+              { src: BoyAlone, alt: 'Boy alone' },
+            ].map((image) => (
+              <div
+                key={image.src}
+                tabIndex={0}
+                aria-label={`${image.alt}; focus or hover to reveal the Finwise logo`}
+                className="group aspect-square rounded-2xl outline-none [perspective:1000px] focus-visible:ring-2 focus-visible:ring-teal-300"
+              >
+                <div className="relative h-full w-full rounded-2xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-visible:[transform:rotateY(180deg)]">
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl border border-white/10 [backface-visibility:hidden]">
+                    <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-[#0d2340] to-[#071521] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <img src={FinwiseMark} alt="Finwise" className="h-3/5 w-3/5 object-contain" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
