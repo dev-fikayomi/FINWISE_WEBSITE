@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { footerGroups, socialLinks } from '@/data/footer'
 import FooterLogo from '@/Assest/footer_Logo.png'
@@ -7,6 +7,19 @@ import SocialIcon from '@/components/ui/SocialIcon'
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const footerLogoRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const logo = footerLogoRef.current
+    if (!logo) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      logo.classList.toggle('footer-logo-visible', entry.isIntersecting)
+    }, { threshold: 0.1 })
+
+    observer.observe(logo)
+    return () => observer.disconnect()
+  }, [])
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -82,7 +95,7 @@ export default function Footer() {
       </div>
 
       <div className="bg-black px-5 py-12 text-center sm:py-16">
-        <div className="mx-auto flex justify-center" data-aos="fade-down" data-aos-offset="80" data-aos-duration="700">
+        <div ref={footerLogoRef} className="footer-logo mx-auto flex justify-center">
           <img
             src={FooterLogo}
             alt="Finwise footer logo"
