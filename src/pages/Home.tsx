@@ -79,7 +79,7 @@ export default function Home() {
       <section
         className="relative overflow-hidden border-b border-white/5 bg-ink-950"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 14, 0.88) 0%, rgba(5, 10, 14, 0.72) 38%, rgba(5, 10, 14, 0.38) 100%), url(${homeHero})`,
+          backgroundImage: `url(${homeHero})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -233,7 +233,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div data-aos="fade-left" className="relative flex justify-center lg:justify-end">
+          <div data-aos="fade-right" className="relative flex justify-center lg:justify-end">
             <img
               src={homePic}
               alt="Finwise savings and BFI score preview"

@@ -11,6 +11,16 @@ export interface NavItem {
 }
 
 export const primaryNav: NavItem[] = [
+   {
+    label: 'Company',
+    children: [
+      { label: 'About', href: '/about', description: 'Learn about FinWise and our mission,and how we are changing the way people think about money.' },
+      { label: 'Careers', href: '/career', description: 'Join the team shaping a healthier financial future for everyone.' },
+      { label: 'Press', href: '/press', description: 'Find Finwise news,announcements,media resources,and press information.' },
+      //
+      
+    ],
+  },
   { label: 'BFI Engine', href: '/bfi' },
   {
     label: 'Solution',
@@ -27,8 +37,9 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: 'Security & Trust', href: '/security-trust' },
-  { label: 'Pricing', href: '/pricing' },
+  // { label: 'Security & Trust', href: '/security-trust' },
+  { label: 'Allowance & Task System', href: '/allowance-tasks' },
+  
   {
     label: 'Resources',
     children: [
@@ -42,16 +53,7 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  {
-    label: 'Company',
-    children: [
-      { label: 'About', href: '/about', description: 'Learn about FinWise and our mission,and how we are changing the way people think about money.' },
-      { label: 'Careers', href: '/career', description: 'Join the team shaping a healthier financial future for everyone.' },
-      { label: 'Press', href: '/press', description: 'Find Finwise news,announcements,media resources,and press information.' },
-      //
-      
-    ],
-  },
-  { label: 'Partners', href: '/partners' },
+ 
+  
   { label: 'Contact', href: '/contact' },
 ]
