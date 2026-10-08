@@ -4,21 +4,67 @@ import { footerGroups, socialLinks } from '@/data/footer'
 import FooterLogo from '@/Assest/footer_Logo.png'
 import SocialIcon from '@/components/ui/SocialIcon'
 
+// How much of the logo area must be on screen before the entrance plays.
+const PLAY_AT = 0.3
+
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
-  const footerLogoRef = useRef<HTMLDivElement>(null)
+
+  // Static box that never moves: this is what the observer watches.
+  const logoAreaRef = useRef<HTMLDivElement>(null)
+  // The element that actually animates (.footer-logo).
+  const logoRef = useRef<HTMLDivElement>(null)
+  const logoImgRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
-    const logo = footerLogoRef.current
-    if (!logo) return
+    const area = logoAreaRef.current
+    const logo = logoRef.current
+    const img = logoImgRef.current
+    if (!area || !logo || !img) return
 
-    const observer = new IntersectionObserver(([entry]) => {
-      logo.classList.toggle('footer-logo-visible', entry.isIntersecting)
-    }, { threshold: 0.1 })
+    let cancelled = false
+    let played = false
+    let observer: IntersectionObserver | undefined
 
-    observer.observe(logo)
-    return () => observer.disconnect()
+    const startObserving = () => {
+      if (cancelled) return
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[entries.length - 1]
+
+          // Enough of the logo area is visible: play once.
+          if (entry.intersectionRatio >= PLAY_AT) {
+            if (!played) {
+              played = true
+              logo.classList.add('footer-logo-visible')
+            }
+            return
+          }
+
+          // Completely off screen: reset so it can play again next time.
+          // Anything in between (partly visible) is left alone, so the
+          // animation is never restarted while the user can see it.
+          if (!entry.isIntersecting) {
+            played = false
+            logo.classList.remove('footer-logo-visible')
+          }
+        },
+        { threshold: [0, PLAY_AT] },
+      )
+
+      observer.observe(area)
+    }
+
+    // Wait until the image is downloaded and decoded, so the animation
+    // never starts on an empty box or stalls while the PNG decodes.
+    img.decode().then(startObserving, startObserving)
+
+    return () => {
+      cancelled = true
+      observer?.disconnect()
+    }
   }, [])
 
   function handleSubmit(e: FormEvent) {
@@ -95,12 +141,18 @@ export default function Footer() {
       </div>
 
       <div className="bg-black px-5 py-12 text-center sm:py-16">
-        <div ref={footerLogoRef} className="footer-logo mx-auto flex justify-center">
-          <img
-            src={FooterLogo}
-            alt="Finwise footer logo"
-            className="h-auto w-full max-w-[1000px] object-contain"
-          />
+        {/* Static wrapper: observed, never transformed */}
+        <div ref={logoAreaRef} className="mx-auto w-full max-w-[1000px]">
+          {/* Animated element */}
+          <div ref={logoRef} className="footer-logo">
+            <img
+              ref={logoImgRef}
+              src={FooterLogo}
+              alt="Finwise footer logo"
+              decoding="async"
+              className="footer-logo-image block h-auto w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </footer>
