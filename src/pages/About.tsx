@@ -94,31 +94,31 @@ function TeamCarousel({ members }: { members: TeamMember[] }) {
           <article
             key={m.name}
             data-card
-            className="flex w-[88%] shrink-0 snap-start flex-col gap-6 rounded-[28px] border border-white/10 bg-[rgba(12,24,38,0.7)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:w-[70%] sm:flex-row sm:p-8 lg:w-[46%]"
+            className="flex w-[88%] shrink-0 snap-start flex-col gap-5 rounded-[24px] border border-white/10 bg-[rgba(12,24,38,0.7)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:w-[70%] sm:flex-row sm:gap-6 sm:p-6 lg:w-[46%] lg:p-8"
           >
             <img
               src={m.photo}
               alt={m.name}
-              className="h-56 w-full shrink-0 rounded-[20px] border border-white/10 object-cover sm:h-auto sm:w-40 sm:aspect-[3/4] lg:w-44"
+              className="h-52 w-full shrink-0 rounded-[18px] border border-white/10 object-cover sm:h-auto sm:w-36 sm:aspect-[3/4] lg:w-44"
               loading="lazy"
             />
             <div className="min-w-0">
-              <h3 className="font-display text-[2rem] font-bold leading-none text-white">{m.name}</h3>
-              <p className="mt-1 text-base text-gold-500">{m.role}</p>
-              <hr className="my-4 border-white/10" />
-              <p className="text-base leading-relaxed text-mist-300">{m.bio}</p>
+              <h3 className="font-display text-[1.5rem] font-bold leading-none text-white sm:text-[2rem]">{m.name}</h3>
+              <p className="mt-1 text-sm text-gold-500 sm:text-base">{m.role}</p>
+              <hr className="my-3 border-white/10 sm:my-4" />
+              <p className="text-sm leading-relaxed text-mist-300 sm:text-base">{m.bio}</p>
             </div>
           </article>
         ))}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4">
+      <div className="mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-4">
         <button
           type="button"
           aria-label="Previous"
           onClick={() => goTo(active - 1)}
           disabled={active === 0}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-mist-300 transition-colors hover:border-gold-500/50 hover:text-gold-500 disabled:opacity-30"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-mist-300 transition-colors hover:border-gold-500/50 hover:text-gold-500 disabled:opacity-30 sm:h-11 sm:w-11"
         >
           <ArrowLeft className="h-4 w-4" />
         </button>
@@ -133,8 +133,8 @@ function TeamCarousel({ members }: { members: TeamMember[] }) {
               className={clsx(
                 'rounded-full transition-all',
                 i === active
-                  ? 'h-3.5 w-3.5 border-2 border-gold-500 bg-transparent'
-                  : 'h-2.5 w-2.5 bg-mist-400/60 hover:bg-mist-300',
+                  ? 'h-3 w-3 border-2 border-gold-500 bg-transparent sm:h-3.5 sm:w-3.5'
+                  : 'h-2.5 w-2.5 bg-mist-400/60 hover:bg-mist-300 sm:h-2.5 sm:w-2.5',
               )}
             />
           ))}
@@ -145,7 +145,7 @@ function TeamCarousel({ members }: { members: TeamMember[] }) {
           aria-label="Next"
           onClick={() => goTo(active + 1)}
           disabled={active === members.length - 1}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-mist-300 transition-colors hover:border-gold-500/50 hover:text-gold-500 disabled:opacity-30"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-mist-300 transition-colors hover:border-gold-500/50 hover:text-gold-500 disabled:opacity-30 sm:h-11 sm:w-11"
         >
           <ArrowRight className="h-4 w-4" />
         </button>
@@ -276,24 +276,26 @@ export default function About() {
           </div>
         </div>
       </section>
-<section className="border-t border-white/5 px-5 py-20 sm:px-8">
-        <div className="mx-auto max-w-[1200px] rounded-[32px] border border-white/10 bg-[#071b2c]/80 px-6 py-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:px-8 lg:px-12">
+<section className="border-t border-white/5 px-4 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-[1200px] rounded-[28px] border border-white/10 bg-[#071b2c]/80 px-4 py-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:rounded-[32px] sm:px-8 sm:py-14 lg:px-12">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-500">Built for trust &amp; scale</p>
-            <h2 className="font-display text-[2.4rem] font-bold leading-[1.08] text-white sm:text-[3rem] lg:text-[3.3rem]">
+            <p className="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-500 sm:mb-5 sm:text-xs sm:tracking-[0.22em]">
+              Built for trust &amp; scale
+            </p>
+            <h2 className="font-display text-[2rem] font-bold leading-[1.08] text-white sm:text-[2.4rem] lg:text-[3.3rem]">
               Technology designed to grow with the people who use it.
             </h2>
 
-            <p className="mx-auto mt-7 max-w-[980px] text-lg leading-[1.7] text-mist-400">
+            <p className="mx-auto mt-5 max-w-[980px] text-base leading-relaxed text-mist-400 sm:mt-7 sm:text-lg sm:leading-[1.7]">
               Finwise is built on a secure, independently scalable architecture designed to support different financial services while maintaining clear separation, reliability, and control.
             </p>
 
-            <p className="mx-auto mt-5 max-w-[980px] text-lg leading-[1.7] text-mist-400">
+            <p className="mx-auto mt-4 max-w-[980px] text-base leading-relaxed text-mist-400 sm:mt-5 sm:text-lg sm:leading-[1.7]">
               From behavioural intelligence to family financial management and secure data sharing, each part of the platform is designed to work together without sacrificing security or flexibility.
             </p>
 
             <div className="mt-8 flex justify-center">
-              <Button to="/security-trust" variant="primary" className="!text-ink-950 !bg-gold-500 px-8 py-3 text-base font-semibold">
+              <Button to="/security-trust" variant="primary" className="!text-ink-950 !bg-gold-500 px-6 py-3 text-sm font-semibold sm:px-8 sm:text-base">
                 Explore Security &amp; Trust
               </Button>
             </div>
@@ -301,19 +303,21 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1380px] px-5 py-20 sm:px-8">
-        <div className="rounded-[32px] border border-white/10 bg-[#071b2c]/80 px-4 py-10 sm:px-8 lg:px-10">
+      <section className="mx-auto max-w-[1380px] px-4 py-16 sm:px-8 sm:py-20">
+        <div className="rounded-[28px] border border-white/10 bg-[#071b2c]/80 px-4 py-8 sm:rounded-[32px] sm:px-8 sm:py-10 lg:px-10">
           <div className="mx-auto max-w-5xl text-center">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-500">Our People</p>
-            <h2 className="font-display text-[2.2rem] font-bold leading-[1.08] text-white sm:text-[3rem]">
+            <p className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-500 sm:mb-4 sm:text-xs sm:tracking-[0.2em]">
+              Our People
+            </p>
+            <h2 className="font-display text-[1.8rem] font-bold leading-[1.08] text-white sm:text-[2.2rem] lg:text-[3rem]">
               Built by people who believe financial capability can change lives.
             </h2>
-            <p className="mx-auto mt-5 max-w-4xl text-base leading-relaxed text-mist-400">
+            <p className="mx-auto mt-4 max-w-4xl text-sm leading-relaxed text-mist-400 sm:mt-5 sm:text-base">
               Finwise brings together experience across technology, financial services, behavioural intelligence, and product design to build tools that support people and families for the long term.
             </p>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <TeamCarousel members={team} />
           </div>
         </div>

@@ -161,18 +161,18 @@ export function NumberedRow({
     <div
       data-aos="fade-up"
       className={
-        'flex flex-col gap-3 rounded-2xl border p-6 sm:flex-row sm:items-center sm:gap-6 ' +
+        'flex flex-col gap-3 rounded-2xl border p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6 ' +
         (active
           ? 'border-gold-500/40 bg-ink-700/60'
           : 'border-white/5 bg-ink-800/60')
       }
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gold-500/30 font-display text-base font-bold text-gold-500">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gold-500/30 font-display text-sm font-bold text-gold-500 sm:h-10 sm:w-10 sm:text-base">
         {number}
       </div>
-      <div>
-        <h3 className="font-display text-lg font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-sm leading-relaxed text-mist-400">{description}</p>
+      <div className="min-w-0">
+        <h3 className="font-display text-base font-semibold text-white sm:text-lg">{title}</h3>
+        <p className="mt-1 text-sm leading-relaxed text-mist-400 sm:text-sm">{description}</p>
       </div>
     </div>
   )

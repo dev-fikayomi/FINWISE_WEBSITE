@@ -1,12 +1,13 @@
 import { ShieldCheck, Landmark, Sparkles, FileCheck2, TrendingUp, Gauge, Repeat, LineChart, HandCoins, CheckCircle2, Lock, Eye, KeyRound } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
-import OrbitVisual from '@/components/ui/OrbitVisual'
 import { SectionHeading, NumberedRow } from '@/components/ui/Atoms'
+import creditManagementImage from '@/Assest/CreditManagement.png'
+import creditImage from '@/Assest/CreditImage.png'
 
 const howItWorks = [
-  { title: 'Verified Credit Partners', description: 'Access credit opportunities from trusted institutions that meet Finwise partnership standards.' },
-  { title: 'Personalized Matching', description: 'Receive recommendations aligned with your financial profile and borrowing needs.' },
-  { title: 'Transparent Process', description: 'Applications, reviews, approvals, and loan terms remain managed by the lending partner.' },
+  { icon: <ShieldCheck className="h-7 w-7" />, title: 'Verified Credit Partners', description: 'Access credit opportunities from trusted institutions that meet Finwise partnership standards.' },
+  { icon: <Gauge className="h-7 w-7" />, title: 'Personalized Matching', description: 'Receive recommendations aligned with your financial profile and borrowing needs.' },
+  { icon: <Eye className="h-7 w-7" />, title: 'Transparent Process', description: 'Applications, reviews, approvals, and loan terms remain managed by the lending partner.' },
 ]
 
 const eligibility = [
@@ -34,7 +35,8 @@ export default function CreditRisk() {
         crumb="Credit & Risk Management"
         title="Access Credit With Confidence."
         description="Discover credit opportunities from financial partners and lenders, guided by your financial habits, savings behavior, and BFI profile."
-        media={<OrbitVisual icon={<ShieldCheck className="h-10 w-10" />} tone="gold" size="lg" badges={[<Gauge className="h-4 w-4" />, <FileCheck2 className="h-4 w-4" />]} />}
+        media={null}
+        backgroundImage={creditManagementImage}
         stats={[
           { value: '1K+', label: 'Credit Assessments Completed' },
           { value: '1K+', label: 'Repayment Success Rate' },
@@ -44,13 +46,33 @@ export default function CreditRisk() {
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <SectionHeading
-          eyebrow="How Credit Works"
+          eyebrow="HOW CREDIT WORKS"
           title="Finwise Doesn't Lend. We Connect."
           description="Finwise helps eligible users discover and apply for credit products offered by verified financial institutions and lending partners."
         />
-        <div className="mt-12 grid gap-4">
+
+        <div className="mx-auto mt-14 max-w-5xl space-y-5">
           {howItWorks.map((s, i) => (
-            <NumberedRow key={s.title} number={i + 1} title={s.title} description={s.description} />
+            <div
+              key={s.title}
+              data-aos="fade-up"
+              data-aos-delay={i * 80}
+              className="flex flex-col gap-4 rounded-[28px] border border-white/10 bg-[#1d2a3d]/90 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:flex-row sm:items-center sm:gap-7 sm:p-6"
+            >
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[18px] border border-[#f2d38a]/40 bg-[#111f2d] text-gold-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:h-20 sm:w-20">
+                {s.icon}
+              </div>
+
+              <div className="flex-1 text-left">
+                <h3 className="font-display text-2xl font-semibold leading-tight text-white sm:text-[2rem]">
+                  {s.title}
+                </h3>
+              </div>
+
+              <p className="max-w-xl text-left text-sm leading-relaxed text-mist-300 sm:text-base">
+                {s.description}
+              </p>
+            </div>
           ))}
         </div>
       </section>
@@ -81,8 +103,15 @@ export default function CreditRisk() {
           description="Credit recommendations are intended to support financial progress while encouraging responsible financial habits."
         />
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
-          <div data-aos="fade-right" className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-white/10 bg-gradient-to-br from-gold-500/10 to-ink-800">
-            <Sparkles className="h-16 w-16 text-gold-500/70" strokeWidth={1.2} />
+          <div
+            data-aos="fade-right"
+            className="flex aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-[#101f2d]"
+          >
+            <img
+              src={creditImage}
+              alt="Responsible borrowing illustration"
+              className="h-full w-full object-cover"
+            />
           </div>
           <div className="flex flex-col divide-y divide-white/5">
             {borrowing.map((b) => (
@@ -108,7 +137,6 @@ export default function CreditRisk() {
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {familyProtection.map((f) => (
               <div key={f.title} data-aos="fade-up" className="rounded-2xl border border-white/5 bg-ink-800/60 p-6">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-teal-400/30 bg-teal-500/10 text-teal-400">{f.icon}</div>
                 <h3 className="font-display text-base font-semibold text-white">{f.title}</h3>
                 <p className="mt-2 text-sm text-mist-400">{f.description}</p>
               </div>

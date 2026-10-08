@@ -67,36 +67,38 @@ export default function Individuals() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 bg-[#071521] py-20">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <section className="border-t border-white/5 bg-[#071521] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">Your Financial Journey</p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-500 sm:text-sm sm:tracking-[0.2em]">
+              Your Financial Journey
+            </p>
+            <h2 className="mt-3 font-display text-[2rem] font-bold leading-tight tracking-[-0.04em] text-white sm:mt-4 sm:text-4xl md:text-5xl">
               Financial Growth Starts With Understanding Yourself
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist-300 md:text-lg">
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-mist-300 sm:mt-5 sm:text-base md:text-lg">
               Finwise uses Behavioral Financial Intelligence to understand your financial habits and turn everyday behavior into personalized insights that help you make more confident financial decisions.
             </p>
           </div>
 
-          <div className="mt-12 space-y-4">
+          <div className="mt-8 space-y-4 sm:mt-12">
             {journey.map((j, i) => (
               <div
                 key={j.title}
-                className="flex items-center gap-5 rounded-[26px] border border-white/10 bg-[#18283a]/90 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+                className="flex flex-col gap-4 rounded-[22px] border border-white/10 bg-[#18283a]/90 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:flex-row sm:items-center sm:gap-5 sm:rounded-[26px] sm:px-5 sm:py-5"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-gold-500/40 bg-[#0d1722] text-xl font-bold text-gold-500">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gold-500/40 bg-[#0d1722] text-base font-bold text-gold-500 sm:h-14 sm:w-14 sm:text-xl">
                   {i + 1}
                 </div>
 
-                <div className="flex flex-1 items-center justify-between gap-5">
-                  <h3 className="font-display text-[1.1rem] font-bold leading-tight text-white md:text-[1.8rem]">
+                <div className="flex flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
+                  <h3 className="font-display text-[1.05rem] font-bold leading-tight text-white sm:text-[1.1rem] md:text-[1.8rem]">
                     {j.title.split(' ').map((word, idx) => (
                       idx === 0 || idx === j.title.split(' ').length - 1 ? <span key={idx} className="block">{word}</span> : null
                     ))}
                   </h3>
 
-                  <p className="max-w-2xl text-left text-base leading-relaxed text-mist-300">
+                  <p className="text-left text-sm leading-relaxed text-mist-300 sm:max-w-2xl sm:text-base">
                     {j.description}
                   </p>
                 </div>
@@ -144,38 +146,40 @@ export default function Individuals() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 bg-[#071521] py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <section className="border-t border-white/5 bg-[#071521] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-500">Responsible Credit Access</p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-500 sm:text-sm sm:tracking-[0.2em]">
+              Responsible Credit Access
+            </p>
+            <h2 className="mt-3 font-display text-[1.9rem] font-bold leading-tight tracking-[-0.04em] text-white sm:mt-4 sm:text-4xl md:text-5xl">
               Opportunities Built Around Better Financial Habits
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist-300 md:text-lg">
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-mist-300 sm:mt-5 sm:text-base md:text-lg">
               Finwise helps eligible users discover credit products from verified partner institutions. Eligibility is informed by your savings behavior and BFI profile — not simply a traditional credit score.
             </p>
           </div>
 
-          <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
-            <div className="flex min-h-[360px] items-center justify-center rounded-[24px] border border-white/10 bg-[#0d1d2d]/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <div className="flex h-[220px] w-[420px] items-center justify-center rounded-[20px] border border-white/10 bg-[#101d2e]/70">
-                <Landmark className="h-16 w-16 text-gold-500/70" strokeWidth={1.2} />
+          <div className="mt-8 grid items-center gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-10">
+            <div className="flex min-h-[220px] items-center justify-center rounded-[24px] border border-white/10 bg-[#0d1d2d]/90 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:min-h-[280px] lg:min-h-[360px]">
+              <div className="flex h-[150px] w-full max-w-[420px] items-center justify-center rounded-[20px] border border-white/10 bg-[#101d2e]/70 sm:h-[180px] lg:h-[220px]">
+                <Landmark className="h-12 w-12 text-gold-500/70 sm:h-16 sm:w-16" strokeWidth={1.2} />
               </div>
             </div>
 
             <div className="space-y-0">
               {credit.map((c, index) => (
-                <div key={c.title} className={index !== credit.length - 1 ? 'border-b border-white/10 pb-5' : ''}>
-                  <div className="flex items-start gap-4 py-5">
-                    <div className="mt-1 flex h-6 w-6 items-center justify-center text-gold-500">
-                      <ArrowUpRight className="h-5 w-5" />
+                <div key={c.title} className={index !== credit.length - 1 ? 'border-b border-white/10 pb-4 sm:pb-5' : ''}>
+                  <div className="flex items-start gap-3 py-4 sm:gap-4 sm:py-5">
+                    <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-gold-500 sm:h-6 sm:w-6">
+                      <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
 
-                    <div>
-                      <h3 className="font-display text-[1.1rem] font-bold leading-tight text-white md:text-[1.8rem]">
+                    <div className="min-w-0">
+                      <h3 className="font-display text-[1rem] font-bold leading-tight text-white sm:text-[1.1rem] md:text-[1.8rem]">
                         {c.title}
                       </h3>
-                      <p className="mt-2 max-w-xl text-base leading-relaxed text-mist-300">
+                      <p className="mt-2 max-w-xl text-sm leading-relaxed text-mist-300 sm:text-base">
                         {c.description}
                       </p>
                     </div>

@@ -91,23 +91,25 @@ export default function Families() {
               <div
                 key={step.number}
                 data-aos="fade-up"
-                className="flex items-center gap-5 rounded-[16px] border border-white/10 bg-[#2a3d52]/80 px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:px-6"
+                className="flex flex-col gap-4 rounded-[16px] border border-white/10 bg-[#2a3d52]/80 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:flex-row sm:items-center sm:gap-5 sm:px-6"
               >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-[#fff]/60 bg-transparent font-display text-2xl font-bold leading-none text-[#E3AF49] shadow-[0_0_0_1px_rgba(227,175,73,0.12)]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#fff]/60 bg-transparent font-display text-xl font-bold leading-none text-[#E3AF49] shadow-[0_0_0_1px_rgba(227,175,73,0.12)] sm:h-14 sm:w-14 sm:text-2xl">
                   {step.number}
                 </div>
 
-                <div className="flex min-w-0 flex-1 items-center gap-6">
-                  <h3 className="w-[220px] shrink-0 font-display text-[1.03rem]  leading-tight text-white sm:text-[1.3rem]"
-                   style={{ fontFamily: 'Mona Sans, sans-serif', 
-                    fontWeight: 600, 
-                    fontStyle: 'normal',
-
-                   }}>
+                <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+                  <h3
+                    className="w-full shrink-0 text-base font-semibold leading-tight text-white sm:w-[220px] sm:text-[1.3rem]"
+                    style={{
+                      fontFamily: 'Mona Sans, sans-serif',
+                      fontWeight: 600,
+                      fontStyle: 'normal',
+                    }}
+                  >
                     {step.title}
                   </h3>
                   <p
-                    className="flex-1 text-[16px] leading-[162%] tracking-[0] text-mist-300"
+                    className="flex-1 text-sm leading-[162%] text-mist-300 sm:text-[16px]"
                     style={{
                       fontFamily: 'Mona Sans, sans-serif',
                       fontWeight: 400,

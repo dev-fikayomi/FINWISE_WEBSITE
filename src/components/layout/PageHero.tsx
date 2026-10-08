@@ -31,7 +31,7 @@ export default function PageHero({
       style={
         backgroundImage
           ? {
-              backgroundImage: `linear-gradient(90deg, rgba(5, 10, 14, 0.88) 0%, rgba(5, 10, 14, 0.72) 38%, rgba(5, 10, 14, 0.38) 100%), url(${backgroundImage})`,
+              backgroundImage: `url(${backgroundImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }
@@ -39,13 +39,7 @@ export default function PageHero({
       }
     >
       {backgroundImage && backgroundGlow && (
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(55% 45% at 85% 5%, rgba(63,227,196,0.14), transparent), radial-gradient(35% 35% at 5% 90%, rgba(238,171,60,0.10), transparent)',
-          }}
-        />
+        <div className="pointer-events-none absolute inset-0 bg-black/10" />
       )}
 
       <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pt-10">

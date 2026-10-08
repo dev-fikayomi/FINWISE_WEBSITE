@@ -140,7 +140,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-black px-5 py-12 text-center sm:py-16">
+      <div className="bg-ink-950 px-5 py-12 text-center sm:py-16">
         {/* Static wrapper: observed, never transformed */}
         <div ref={logoAreaRef} className="mx-auto w-full max-w-[1000px]">
           {/* Animated element */}

@@ -49,13 +49,13 @@ export default function FamilyChildAccount() {
       />
       
 
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-8 sm:py-20">
         <SectionHeading
           eyebrow="How Family Accounts Work"
           title="One Family. Connected Financial Journeys."
           description="A parent or guardian can create and manage financial profiles for every child in the family, helping them build healthy money habits from an early age."
         />
-        <div className="mt-12 grid gap-4">
+        <div className="mt-8 grid gap-3 sm:mt-12 sm:gap-4">
           {steps.map((s, i) => (
             <NumberedRow key={s.title} number={i + 1} title={s.title} description={s.description} />
           ))}
