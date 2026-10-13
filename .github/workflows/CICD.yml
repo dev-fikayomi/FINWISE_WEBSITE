@@ -1,0 +1,26 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t finwise-website:latest .
+
+      - name: Restart container
+        run: |
+          docker rm -f finwise-website || true
+          docker run -d \
+            --name finwise-website \
+            --restart unless-stopped \
+            -p 127.0.0.1:8081:80 \
+            finwise-website:latest
+
+      - name: Clean old images
+        run: docker image prune -f
